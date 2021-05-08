@@ -11,7 +11,9 @@
         <module name="back-end" />
         <module name="SacchonBack" />
         <module name="Sacchon" />
+        <module name="sacchon" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="8" />
   </component>
 </project>
