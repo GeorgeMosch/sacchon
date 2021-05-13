@@ -4,10 +4,12 @@ import jpaUtil.JpaUtil;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import model.Consultation;
+import org.modelmapper.ModelMapper;
 import repository.DoctorRepository;
 import repository.PatientRepository;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -22,6 +24,10 @@ public class ConsultationRepresentation {
     private long doctorId;
 
     private String uri;
+
+    Consultation consultation = createConsultation();
+    ModelMapper modelMapper = new ModelMapper();
+    ConsultationRepresentation consultationRepresentation = modelMapper.map(consultation, ConsultationRepresentation.class);
 
     public ConsultationRepresentation(Consultation consultation) {
         if (consultation != null) {

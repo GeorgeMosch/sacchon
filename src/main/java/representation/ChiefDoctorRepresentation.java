@@ -3,6 +3,7 @@ package representation;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import model.ChiefDoctor;
+import org.modelmapper.ModelMapper;
 
 @Data
 @NoArgsConstructor
@@ -14,6 +15,10 @@ public class ChiefDoctorRepresentation {
     private String address;
     private String email;
     private String uri;
+
+    ChiefDoctor chiefDoctor = createChiefDoctor();
+    ModelMapper modelMapper = new ModelMapper();
+    ChiefDoctorRepresentation chiefDoctorRepresentation = modelMapper.map(chiefDoctor, ChiefDoctorRepresentation.class);
 
     public ChiefDoctorRepresentation(ChiefDoctor chiefDoctor) {
         if (chiefDoctor != null) {

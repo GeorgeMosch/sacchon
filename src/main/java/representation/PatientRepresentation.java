@@ -4,6 +4,7 @@ import jpaUtil.JpaUtil;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import model.Patient;
+import org.modelmapper.ModelMapper;
 import repository.DoctorRepository;
 
 import javax.persistence.EntityManager;
@@ -24,6 +25,9 @@ public class PatientRepresentation {
     private Date dateRegistered;
     private boolean consultationChanged;
 
+    Patient patient = createPatient();
+    ModelMapper modelMapper = new ModelMapper();
+    PatientRepresentation patientRepresentation = modelMapper.map(patient, PatientRepresentation.class);
 
     private String uri;
 

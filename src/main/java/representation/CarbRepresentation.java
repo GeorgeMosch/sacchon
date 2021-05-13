@@ -4,6 +4,7 @@ import jpaUtil.JpaUtil;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import model.Carb;
+import org.modelmapper.ModelMapper;
 import repository.CarbRepository;
 import repository.PatientRepository;
 
@@ -21,6 +22,10 @@ public class CarbRepresentation {
     private long patientId;
 
     private String uri;
+
+    Carb carbEntity = createCarb();
+    ModelMapper modelMapper = new ModelMapper();
+    CarbRepresentation carbRepresentation = modelMapper.map(carbEntity, CarbRepresentation.class);
 
     public CarbRepresentation(Carb carb) {
         if (carb != null) {

@@ -3,6 +3,7 @@ package representation;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import model.Doctor;
+import org.modelmapper.ModelMapper;
 
 @Data
 @NoArgsConstructor
@@ -14,6 +15,10 @@ public class DoctorRepresentation {
     private String address;
     private String email;
     private String uri;
+
+    Doctor doctor = createDoctor();
+    ModelMapper modelMapper = new ModelMapper();
+    DoctorRepresentation doctorRepresentation = modelMapper.map(doctor, DoctorRepresentation.class);
 
     public DoctorRepresentation(Doctor doctor) {
         if (doctor != null) {
