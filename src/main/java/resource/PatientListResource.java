@@ -11,8 +11,10 @@ import representation.PatientRepresentation;
 import security.Shield;
 
 import javax.persistence.EntityManager;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class PatientListResource extends ServerResource {
@@ -40,7 +42,7 @@ public class PatientListResource extends ServerResource {
         if (patientRepresentationIn.getPassword() == null) return null;
 
         Patient patient = patientRepresentationIn.createPatient();
-        if (patientRepresentationIn.getDateRegistered() == null) patient.setDateRegistered(new Date());
+        if (patientRepresentationIn.getDateRegistered() == null) patient.setDateRegistered(LocalDate.now());
         EntityManager em = JpaUtil.getEntityManager();
         PatientRepository patientRepository = new PatientRepository(em);
         patientRepository.save(patient);

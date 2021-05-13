@@ -8,7 +8,7 @@ import org.modelmapper.ModelMapper;
 import repository.DoctorRepository;
 
 import javax.persistence.EntityManager;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class PatientRepresentation {
     private int age;
     private String sex;
     private long doctorId;
-    private Date dateRegistered;
+    private LocalDate dateRegistered;
     private boolean consultationChanged;
 
     Patient patient = createPatient();

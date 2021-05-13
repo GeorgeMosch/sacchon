@@ -9,6 +9,7 @@ import repository.DoctorRepository;
 import repository.PatientRepository;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -16,7 +17,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class ConsultationRepresentation {
     private long id;
-    private Date date;
+    private LocalDate date;
     private String medicationName;
     private double dosage;
     private String comment;

@@ -3,6 +3,7 @@ package model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class Doctor extends User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String role = "doctor";
-    private Date recentConsultation;
+    private LocalDate recentConsultation;
 
     @OneToMany(mappedBy = "doctor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Consultation> consultationList;

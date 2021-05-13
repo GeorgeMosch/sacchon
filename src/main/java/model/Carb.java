@@ -3,6 +3,7 @@ package model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -14,8 +15,8 @@ public class Carb {
     private long id;
 
     private double carb;
-    private Date date;
-    private Date simpleDate;
+    private LocalDate date;
+    private LocalDate simpleDate;
 
     @ManyToOne
     private Patient patient;

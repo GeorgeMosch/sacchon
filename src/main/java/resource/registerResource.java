@@ -9,7 +9,7 @@ import repository.PatientRepository;
 import representation.PatientRepresentation;
 
 import javax.persistence.EntityManager;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class registerResource extends ServerResource {
 
@@ -23,7 +23,7 @@ public class registerResource extends ServerResource {
         if (patientRepresentationIn.getEmail() == null) return null;
 
         Patient patient = patientRepresentationIn.createPatient();
-        if (patientRepresentationIn.getDateRegistered() == null) patient.setDateRegistered(new Date());
+        if (patientRepresentationIn.getDateRegistered() == null) patient.setDateRegistered(LocalDate.now());
         EntityManager em = JpaUtil.getEntityManager();
         PatientRepository patientRepository = new PatientRepository(em);
         patientRepository.save(patient);

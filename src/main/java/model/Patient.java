@@ -4,6 +4,7 @@ package model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -15,12 +16,12 @@ public class Patient extends User {
     private long id;
     private int age;
     private String sex;
-    private Date dateRegistered;
+    private LocalDate dateRegistered;
     private String role = "patient";
     private boolean consultationChanged = false;
-    private Date recentConsultation;
-    private Date recentCarb;
-    private Date recentGlucose;
+    private LocalDate recentConsultation;
+    private LocalDate recentCarb;
+    private LocalDate recentGlucose;
 
     @ManyToOne
     private Doctor doctor;

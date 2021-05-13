@@ -11,6 +11,7 @@ import representation.GlucoseRepresentation;
 import security.Shield;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -37,7 +38,7 @@ public class GlucoseListResource extends ServerResource {
         if (glucoseRepresentationIn == null) return null;
 
         Glucose glucose = glucoseRepresentationIn.createGlucose();
-        if (glucoseRepresentationIn.getDate() == null) glucose.setDate(new Date());
+        if (glucoseRepresentationIn.getDate() == null) glucose.setDate(LocalDate.now());
         EntityManager em = JpaUtil.getEntityManager();
         GlucoseRepository glucoseRepository = new GlucoseRepository(em);
         glucoseRepository.save(glucose);
