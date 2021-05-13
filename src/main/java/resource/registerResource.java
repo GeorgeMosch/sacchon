@@ -20,6 +20,7 @@ public class registerResource extends ServerResource {
         if (patientRepresentationIn == null) return null;
         if (patientRepresentationIn.getUsername() == null) return null;
         if (patientRepresentationIn.getPassword() == null) return null;
+        if (patientRepresentationIn.getEmail() == null) return null;
 
         Patient patient = patientRepresentationIn.createPatient();
         if (patientRepresentationIn.getDateRegistered() == null) patient.setDateRegistered(new Date());

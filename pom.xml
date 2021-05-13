@@ -9,17 +9,16 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>11</java.version>
+        <java.version>1.8</java.version>
         <hibernate.version>5.4.1.Final</hibernate.version>
         <lombok.version>1.18.20</lombok.version>
         <restlet-version>2.4.3</restlet-version>
     </properties>
 
     <dependencies>
-
 
         <!-- restlet libraries -->
         <dependency>
@@ -38,15 +37,11 @@
             <version>${restlet-version}</version>
         </dependency>
 
-
-
-
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
-
 
         <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
         <dependency>
@@ -68,19 +63,85 @@
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
-    </dependencies>
 
-    <repositories>
-        <repository>
-            <id>maven-restlet</id>
-            <name>Public online Restlet repository</name>
-            <url>http://maven.restlet.talend.com</url>
-        </repository>
-        <repository>
-            <id>mulesoft-releases</id>
-            <name>MuleSoft Releases Repository</name>
-            <url>https://repository-master.mulesoft.org/releases/</url>
-        </repository>
-    </repositories>
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.7.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>4.1.6.RELEASE</version>
+        </dependency>
 
-</project>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>28.1-jre</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>0.11.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.11.2</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId> <!-- or jjwt-gson if Gson is preferred -->
+            <version>0.11.2</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- Uncomment this next dependency if you are using JDK 10 or earlier and you also want to use
+             RSASSA-PSS (PS256, PS384, PS512) algorithms.  JDK 11 or later does not require it for those algorithms:
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.60</version>
+            <scope>runtime</scope>
+        </dependency>
+        -->
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>4.0.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>4.0.0.RELEASE</version>
+        </dependency>
+        <!-- Uncomment this next dependency if you are using JDK 10 or earlier and you also want to use
+             RSASSA-PSS (PS256, PS384, PS512) algorithms.  JDK 11 or later does not require it for those algorithms:
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.60</version>
+            <scope>runtime</scope>
+        </dependency>-->
+
+            </dependencies>
+
+            <repositories>
+                <repository>
+                    <id>maven-restlet</id>
+                    <name>Public online Restlet repository</name>
+                    <url>http://maven.restlet.talend.com</url>
+                </repository>
+                <repository>
+                    <id>mulesoft-releases</id>
+                    <name>MuleSoft Releases Repository</name>
+                    <url>https://repository-master.mulesoft.org/releases/</url>
+                </repository>
+            </repositories>
+
+        </project>

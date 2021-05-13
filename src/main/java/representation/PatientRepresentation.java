@@ -59,7 +59,7 @@ public class PatientRepresentation {
         patient.setSex(sex);
         patient.setDateRegistered(dateRegistered);
 
-
+//TODO to be changed
         EntityManager em = JpaUtil.getEntityManager();
         DoctorRepository doctorRepository = new DoctorRepository(em);
         patient.setDoctor(doctorRepository.read(doctorId));

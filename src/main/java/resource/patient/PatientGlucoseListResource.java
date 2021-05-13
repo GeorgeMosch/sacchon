@@ -45,6 +45,8 @@ public class PatientGlucoseListResource extends ServerResource {
     @Post("json")
     public GlucoseRepresentation add(GlucoseRepresentation glucoseRepresentationIn) throws AuthorizationException {
         ResourceUtils.checkRole(this, Shield.ROLE_PATIENT);
+
+
         if (glucoseRepresentationIn == null) return null;
 
         glucoseRepresentationIn.setPatientId(this.patientId);

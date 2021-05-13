@@ -31,8 +31,10 @@ public class PatientRepository extends Repository<Patient, Long> {
 
     public Patient getByUsername(String username) {
         try {
-            return entityManager.createQuery("from Patient p where p.username= :username ", Patient.class)
-                    .setParameter("username", username).getSingleResult();
+            return entityManager
+                    .createQuery("from Patient p where p.username= :username ", Patient.class)
+                    .setParameter("username", username)
+                    .getSingleResult();
         } catch (Exception e) {
             return null;
         }
@@ -40,8 +42,10 @@ public class PatientRepository extends Repository<Patient, Long> {
 
     public Patient getByPassword(String password) {
         try {
-            return entityManager.createQuery("from Patient p where p.password= :password", Patient.class)
-                    .setParameter("password", password).getSingleResult();
+            return entityManager
+                    .createQuery("from Patient p where p.password= :password", Patient.class)
+                    .setParameter("password", password)
+                    .getSingleResult();
         } catch (Exception e) {
             return null;
         }

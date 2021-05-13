@@ -7,6 +7,7 @@ import model.Patient;
 import org.restlet.resource.Get;
 import org.restlet.resource.Post;
 import org.restlet.resource.ServerResource;
+import org.restlet.util.Series;
 import repository.CarbRepository;
 import repository.PatientRepository;
 import representation.CarbRepresentation;
@@ -22,7 +23,12 @@ public class PatientCarbListResource extends ServerResource {
 
     protected void doInit() {
 
-        patientId = Long.parseLong(getAttribute("patientId"));
+        EntityManager em = JpaUtil.getEntityManager();
+        PatientRepository patientRepository = new PatientRepository(em);
+        Series headers = (Series) getRequestAttributes().get("org.restlet.http.headers");
+        String username = headers.getFirstValue("username");
+        patientId = patientRepository.getByUsername(username).getId();
+        //patientId = Long.parseLong(getAttribute("patientId"));
     }
 
 

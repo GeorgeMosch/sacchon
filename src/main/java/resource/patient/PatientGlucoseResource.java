@@ -19,7 +19,7 @@ import java.util.List;
 public class PatientGlucoseResource extends ServerResource {
     private long patientId;
     private long glucoseId;
-
+    // TODO try catch clause because it throws 500 server error when
     protected void doInit() {
         patientId = Long.parseLong(getAttribute("patientId"));
         glucoseId = Long.parseLong(getAttribute("glucoseId"));
