@@ -29,10 +29,12 @@ public class PatientRepository extends Repository<Patient, Long> {
         return Patient.class.getName();
     }
 
+
+
     public Patient getByUsername(String username) {
         try {
             return entityManager
-                    .createQuery("from Patient p where p.username= :username ", Patient.class)
+                    .createQuery("select p from Patient p where p.username= :username ", Patient.class)
                     .setParameter("username", username)
                     .getSingleResult();
         } catch (Exception e) {
@@ -189,6 +191,4 @@ public class PatientRepository extends Repository<Patient, Long> {
             return null;
         }
     }
-
-
 }

@@ -1,13 +1,11 @@
 package representation;
 
-import jpaUtil.JpaUtil;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import model.Patient;
 import org.modelmapper.ModelMapper;
 import repository.DoctorRepository;
 
-import javax.persistence.EntityManager;
 import java.util.Date;
 
 @Data

@@ -4,7 +4,6 @@ import jpaUtil.JpaUtil;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import model.Glucose;
-import org.modelmapper.ModelMapper;
 import repository.PatientRepository;
 
 import javax.persistence.EntityManager;
@@ -18,10 +17,6 @@ public class GlucoseRepresentation {
     private long patientId;
 
     private String uri;
-
-    Glucose glucoseEntity = createGlucose();
-    ModelMapper modelMapper = new ModelMapper();
-    GlucoseRepresentation glucoseRepresentation = modelMapper.map(glucose, GlucoseRepresentation.class);
 
     public GlucoseRepresentation(Glucose glucose) {
         if (glucose != null) {

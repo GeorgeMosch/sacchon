@@ -19,11 +19,11 @@ public abstract class Repository<T, K> {
             entityManager.persist(t);
             entityManager.getTransaction().commit();
         } catch (ConstraintViolationException e) {
-            System.out.println("Already registered!"); // TODO wrong
+            System.out.println("Already registered!");
         } catch (Exception e) {
-            e.printStackTrace(); // TODO wrong
+            e.printStackTrace();
         }
-        return null; // TODO wrong
+        return null;
     }
 
     public abstract Class<T> getEntityClass();
@@ -40,9 +40,21 @@ public abstract class Repository<T, K> {
         }
     }
 
-    // TODO paging ie. page number. page length
+    //paging
+    //page number, page length
+//
     public List<T> findAll() {
         try {
+            //JPQL
+            return entityManager.createQuery("from " + getClassName()).getResultList();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public List<T> getByPage(int pageSize, int pageNumber) {
+        try {
+            //JPQL
             return entityManager.createQuery("from " + getClassName()).getResultList();
         } catch (Exception e) {
             return null;
@@ -51,6 +63,7 @@ public abstract class Repository<T, K> {
 
 
     // Update
+    //correct it returns null
     public T update(T t) {
         try {
             entityManager.getTransaction().begin();
@@ -58,9 +71,9 @@ public abstract class Repository<T, K> {
             entityManager.getTransaction().commit();
             return t;
         } catch (Exception e) {
-            e.printStackTrace(); // TODO wrong
+            e.printStackTrace();
         }
-        return null; // TODO it returns null
+        return null;
     }
     //Verify
 

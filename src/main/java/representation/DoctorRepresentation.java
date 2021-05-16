@@ -3,7 +3,6 @@ package representation;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import model.Doctor;
-import org.modelmapper.ModelMapper;
 
 @Data
 @NoArgsConstructor
