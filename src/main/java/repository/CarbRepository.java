@@ -5,6 +5,8 @@ import model.Carb;
 import javax.persistence.EntityManager;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class CarbRepository extends Repository<Carb, Long>{
@@ -22,14 +24,11 @@ public class CarbRepository extends Repository<Carb, Long>{
         return Carb.class.getName();
     }
 
-    public Date getSimpleDate(Date date){
+    public LocalDate getSimpleDate(LocalDate date){
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String formattedDate = formatter.format(date);
-        try {
-            Date simpleDate= formatter.parse(formattedDate);
-            return simpleDate;
-        } catch (ParseException e) {
-            return null;
-        }
+        //            Date simpleDate= formatter.parse(formattedDate);
+        LocalDate simpleDate = LocalDate.parse(formattedDate);
+        return simpleDate;
     }
 }

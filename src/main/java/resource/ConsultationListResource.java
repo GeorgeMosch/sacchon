@@ -11,6 +11,7 @@ import representation.ConsultationRepresentation;
 import security.Shield;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -37,7 +38,7 @@ public class ConsultationListResource extends ServerResource {
         if (consultationRepresentationIn == null) return null;
 
         Consultation consultation = consultationRepresentationIn.createConsultation();
-        if (consultation.getDate() == null) consultation.setDate(new Date());
+        if (consultation.getDate() == null) consultation.setDate(LocalDate.now());
 
         EntityManager em = JpaUtil.getEntityManager();
         ConsultationRepository consultationListRepository = new ConsultationRepository(em);

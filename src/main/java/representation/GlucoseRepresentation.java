@@ -7,13 +7,14 @@ import model.Glucose;
 import repository.PatientRepository;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
 import java.util.Date;
 @Data
 @NoArgsConstructor
 public class GlucoseRepresentation {
     private long id;
     private double glucose;
-    private Date date;
+    private LocalDate date;
     private long patientId;
 
     private String uri;
@@ -35,7 +36,7 @@ public class GlucoseRepresentation {
         Glucose glucose = new Glucose();
         glucose.setGlucose(this.glucose);
 
-        if(date== null) date= new Date();
+        if(date== null) date = LocalDate.now();
         glucose.setDate(date);
 
         //TODO to be changed !¬

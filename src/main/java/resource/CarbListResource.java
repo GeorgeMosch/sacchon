@@ -11,6 +11,7 @@ import representation.CarbRepresentation;
 import security.Shield;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -37,7 +38,7 @@ public class CarbListResource extends ServerResource {
         if (carbRepresentationIn == null) return null;
 
         Carb carb = carbRepresentationIn.createCarb();
-        if (carb.getDate() == null) carb.setDate(new Date());
+        if (carb.getDate() == null) carb.setDate(LocalDate.now());
 
         EntityManager em = JpaUtil.getEntityManager();
         CarbRepository carbRepository = new CarbRepository(em);

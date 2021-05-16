@@ -9,6 +9,7 @@ import repository.CarbRepository;
 import repository.PatientRepository;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.Date;
 
@@ -17,7 +18,7 @@ import java.util.Date;
 public class CarbRepresentation {
     private long id;
     private double carb;
-    private Date date;
+    private LocalDate date;
     private long dateOffsetDays;
     private long patientId;
 
@@ -48,7 +49,7 @@ public class CarbRepresentation {
 
         carb.setCarb(this.carb);
         if (date == null) {
-            carb.setDate(Date.from(ZonedDateTime.now().minusDays(dateOffsetDays).toInstant()));
+            carb.setDate(LocalDate.from(ZonedDateTime.now().minusDays(dateOffsetDays).toInstant()));
         } else {
             carb.setDate(date);
         }

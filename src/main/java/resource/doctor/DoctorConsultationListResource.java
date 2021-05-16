@@ -14,6 +14,7 @@ import resource.ResourceUtils;
 import security.Shield;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -57,7 +58,7 @@ public class DoctorConsultationListResource extends ServerResource {
         DoctorRepository doctorRepository = new DoctorRepository(em);
         Doctor doctor = doctorRepository.read(doctorId);
         em.detach(doctor);
-        doctor.setRecentConsultation(new Date());
+        doctor.setRecentConsultation(LocalDate.now());
         doctorRepository.update(doctor);
 
         return c;

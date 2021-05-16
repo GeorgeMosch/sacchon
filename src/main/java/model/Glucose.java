@@ -3,6 +3,7 @@ package model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -13,7 +14,7 @@ public class Glucose {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private double glucose;
-    private Date date;
+    private LocalDate date;
 
     @ManyToOne
     private Patient patient;
